@@ -21,7 +21,7 @@ public class ShopCardPortImpl implements ShopCardPort {
     @Override
     public List<ShopCart> findAll() {
         return StreamSupport.stream(repository.findAll().spliterator(), false)
-                .map(ShopCardPersistenceConverter.fromEntityToModel::apply)
+                .map(ShopCardPersistenceConverter.fromEntityToModel)
                 .collect(Collectors.toUnmodifiableList());
     }
 
@@ -39,11 +39,11 @@ public class ShopCardPortImpl implements ShopCardPort {
 
     @Override
     public ShopCart update(String customer, ShopCart shopCart) {
-        final ShopCartEntity entity = repository.findById(customer)
+        final ShopCartEntity existed = repository.findById(customer)
                 .orElseThrow(ResourceNotFoundException::new);
-        BeanUtils.copyProperties(shopCart, entity);
-        entity.setCustomer(customer);
-        return ShopCardPersistenceConverter.fromEntityToModel.apply(repository.save(entity));
+        final ShopCartEntity newEntity = ShopCardPersistenceConverter.fromModelToEntity.apply(shopCart);
+        newEntity.setCustomer(existed.getCustomer());
+        return ShopCardPersistenceConverter.fromEntityToModel.apply(repository.save(newEntity));
     }
 
     @Override

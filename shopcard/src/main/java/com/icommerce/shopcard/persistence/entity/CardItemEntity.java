@@ -4,15 +4,15 @@ import java.io.Serializable;
 
 public class CardItemEntity implements Serializable {
 
-    private ProductEntity productEntity;
+    private ProductEntity product;
     private Long quantity;
 
     public ProductEntity getProduct() {
-        return productEntity;
+        return product;
     }
 
-    public void setProduct(ProductEntity productEntity) {
-        this.productEntity = productEntity;
+    public void setProduct(ProductEntity product) {
+        this.product = product;
     }
 
     public Long getQuantity() {

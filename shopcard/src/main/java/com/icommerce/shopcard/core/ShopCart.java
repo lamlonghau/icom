@@ -5,7 +5,7 @@ import java.util.List;
 public class ShopCart {
 
     private String customer;
-    private List<CardItem> cartItems;
+    private List<CardItem> items;
 
     public String getCustomer() {
         return customer;
@@ -15,11 +15,11 @@ public class ShopCart {
         this.customer = customer;
     }
 
-    public List<CardItem> getCartItems() {
-        return cartItems;
+    public List<CardItem> getItems() {
+        return items;
     }
 
-    public void setCartItems(List<CardItem> cartItems) {
-        this.cartItems = cartItems;
+    public void setItems(List<CardItem> items) {
+        this.items = items;
     }
 }

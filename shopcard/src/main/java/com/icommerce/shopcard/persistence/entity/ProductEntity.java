@@ -15,6 +15,19 @@ public class ProductEntity implements Serializable {
     private List<String> attributes;
     private BigDecimal price;
 
+    public ProductEntity() {
+    }
+
+    public ProductEntity(String id, String name,
+                         String category, List<String> attributes,
+                         BigDecimal price) {
+        this.id = id;
+        this.name = name;
+        this.category = category;
+        this.attributes = attributes;
+        this.price = price;
+    }
+
     public String getId() {
         return id;
     }

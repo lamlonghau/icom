@@ -12,7 +12,7 @@ public class ShopCartEntity {
     @Id
     @Indexed
     private String customer;
-    private List<CardItemEntity> cardItemEntities;
+    private List<CardItemEntity> items;
 
     public String getCustomer() {
         return customer;
@@ -22,11 +22,11 @@ public class ShopCartEntity {
         this.customer = customer;
     }
 
-    public List<CardItemEntity> getCardItems() {
-        return cardItemEntities;
+    public List<CardItemEntity> getItems() {
+        return items;
     }
 
-    public void setCardItems(List<CardItemEntity> cardItemEntities) {
-        this.cardItemEntities = cardItemEntities;
+    public void setItems(List<CardItemEntity> items) {
+        this.items = items;
     }
 }
