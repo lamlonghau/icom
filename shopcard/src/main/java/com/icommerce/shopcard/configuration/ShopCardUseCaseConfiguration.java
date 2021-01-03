@@ -1,8 +1,8 @@
 package com.icommerce.shopcard.configuration;
 
-import com.icommerce.shopcard.core.port.ShopCardPort;
-import com.icommerce.shopcard.core.usecase.*;
-import com.icommerce.shopcard.core.usecase.impl.*;
+import com.icommerce.shopcard.core.shopcard.port.ShopCardPort;
+import com.icommerce.shopcard.core.shopcard.usecase.*;
+import com.icommerce.shopcard.core.shopcard.usecase.impl.*;
 import com.icommerce.shopcard.persistence.impl.ShopCardPortImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

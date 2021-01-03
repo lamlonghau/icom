@@ -1,6 +1,6 @@
-package com.icommerce.shopcard.core.port;
+package com.icommerce.shopcard.core.shopcard.port;
 
-import com.icommerce.shopcard.core.ShopCart;
+import com.icommerce.shopcard.core.shopcard.ShopCart;
 
 import java.util.List;
 

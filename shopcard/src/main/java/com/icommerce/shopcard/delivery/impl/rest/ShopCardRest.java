@@ -1,8 +1,8 @@
 package com.icommerce.shopcard.delivery.impl.rest;
 
-import com.icommerce.shopcard.core.ShopCart;
+import com.icommerce.shopcard.core.shopcard.ShopCart;
 import com.icommerce.shopcard.core.shared.ConstantUtils;
-import com.icommerce.shopcard.core.usecase.*;
+import com.icommerce.shopcard.core.shopcard.usecase.*;
 import com.icommerce.shopcard.delivery.ShopCardController;
 import com.icommerce.shopcard.delivery.dto.BaseResponse;
 import org.springframework.beans.factory.annotation.Autowired;

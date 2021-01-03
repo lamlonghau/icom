@@ -1,8 +1,8 @@
-package com.icommerce.shopcard.core.usecase.impl;
+package com.icommerce.shopcard.core.shopcard.usecase.impl;
 
-import com.icommerce.shopcard.core.ShopCart;
-import com.icommerce.shopcard.core.port.ShopCardPort;
-import com.icommerce.shopcard.core.usecase.FindShopCardsByCustomerUseCase;
+import com.icommerce.shopcard.core.shopcard.ShopCart;
+import com.icommerce.shopcard.core.shopcard.port.ShopCardPort;
+import com.icommerce.shopcard.core.shopcard.usecase.FindShopCardsByCustomerUseCase;
 
 public class FindShopCardsByCustomerUseCaseImpl implements FindShopCardsByCustomerUseCase {
 

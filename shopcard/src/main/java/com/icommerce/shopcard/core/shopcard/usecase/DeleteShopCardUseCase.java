@@ -1,4 +1,4 @@
-package com.icommerce.shopcard.core.usecase;
+package com.icommerce.shopcard.core.shopcard.usecase;
 
 public interface DeleteShopCardUseCase {
 

@@ -1,6 +1,6 @@
 package com.icommerce.shopcard.delivery;
 
-import com.icommerce.shopcard.core.ShopCart;
+import com.icommerce.shopcard.core.shopcard.ShopCart;
 import com.icommerce.shopcard.delivery.dto.BaseResponse;
 
 import java.util.List;

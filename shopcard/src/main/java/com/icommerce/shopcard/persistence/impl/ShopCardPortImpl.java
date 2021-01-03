@@ -1,12 +1,11 @@
 package com.icommerce.shopcard.persistence.impl;
 
-import com.icommerce.shopcard.core.ShopCart;
-import com.icommerce.shopcard.core.port.ShopCardPort;
+import com.icommerce.shopcard.core.shopcard.ShopCart;
+import com.icommerce.shopcard.core.shopcard.port.ShopCardPort;
 import com.icommerce.shopcard.core.shared.ResourceNotFoundException;
 import com.icommerce.shopcard.persistence.converter.ShopCardPersistenceConverter;
 import com.icommerce.shopcard.persistence.entity.ShopCartEntity;
 import com.icommerce.shopcard.persistence.repository.ShopCartRepository;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;

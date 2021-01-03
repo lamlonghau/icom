@@ -1,8 +1,8 @@
 package com.icommerce.shopcard.persistence.converter;
 
-import com.icommerce.shopcard.core.CardItem;
-import com.icommerce.shopcard.core.Product;
-import com.icommerce.shopcard.core.ShopCart;
+import com.icommerce.shopcard.core.shopcard.CardItem;
+import com.icommerce.shopcard.core.shopcard.Product;
+import com.icommerce.shopcard.core.shopcard.ShopCart;
 import com.icommerce.shopcard.persistence.entity.CardItemEntity;
 import com.icommerce.shopcard.persistence.entity.ProductEntity;
 import com.icommerce.shopcard.persistence.entity.ShopCartEntity;

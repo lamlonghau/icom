@@ -1,14 +1,22 @@
-package com.icommerce.shopcard.core;
+package com.icommerce.shopcard.core.shopcard;
 
+import com.icommerce.shopcard.core.shared.CreationValidationGroup;
+import com.icommerce.shopcard.core.shared.UpdatingValidationGroup;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.List;
 
 public class Product {
 
     private String id;
+    @NotEmpty(groups = {CreationValidationGroup.class, UpdatingValidationGroup.class})
     private String name;
     private String category;
+    @NotEmpty(groups = {CreationValidationGroup.class, UpdatingValidationGroup.class})
     private List<String> attributes;
+    @NotNull(groups = {CreationValidationGroup.class, UpdatingValidationGroup.class})
     private BigDecimal price;
 
     public Product() {
