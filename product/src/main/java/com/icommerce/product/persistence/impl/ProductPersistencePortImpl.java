@@ -2,6 +2,7 @@ package com.icommerce.product.persistence.impl;
 
 import com.icommerce.product.core.product.Product;
 import com.icommerce.product.core.product.port.ProductPersistencePort;
+import com.icommerce.product.core.shared.ResourceNotFoundException;
 import com.icommerce.product.persistence.converter.ProductPersistenceConverter;
 import com.icommerce.product.persistence.entity.ProductEntity;
 import com.icommerce.product.persistence.repository.ProductRepository;
@@ -28,13 +29,29 @@ public class ProductPersistencePortImpl implements ProductPersistencePort {
         final Pageable pageable = PageableBuilder.build(sort, size, page);
         final Page<ProductEntity> resp = repository.findAll(specs, pageable);
         final Set<ProductEntity> filters = new HashSet<>(resp.getContent());
-        return filters.stream().map(ProductPersistenceConverter.fromProductFilterViewEntityToProduct)
+        return filters.stream().map(ProductPersistenceConverter.fromEntityToModel)
                 .collect(Collectors.toUnmodifiableList());
     }
 
     @Override
     public String create(Product product) {
-        final ProductEntity entity = ProductPersistenceConverter.fromProductToProductEntity.apply(product);
+        final ProductEntity entity = ProductPersistenceConverter.fromModelToEntity.apply(product);
         return repository.save(entity).getId();
+    }
+
+    @Override
+    public Product find(String id) {
+        final ProductEntity entity = repository.findById(id).orElseThrow(ResourceNotFoundException::new);
+        return ProductPersistenceConverter.fromEntityToModel.apply(entity);
+    }
+
+    @Override
+    public Product update(String id, Product product) {
+        final ProductEntity entity = repository.findById(id).orElseThrow(ResourceNotFoundException::new);
+        entity.setBrand(product.getBrand());
+        entity.setPrice(product.getPrice());
+        entity.setDescription(product.getDescription());
+        entity.setColour(product.getColour());
+        return ProductPersistenceConverter.fromEntityToModel.apply(repository.save(entity));
     }
 }

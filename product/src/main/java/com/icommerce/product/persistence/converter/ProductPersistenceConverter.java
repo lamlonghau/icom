@@ -8,13 +8,13 @@ import java.util.function.Function;
 
 public interface ProductPersistenceConverter {
 
-    Function<ProductEntity, Product> fromProductFilterViewEntityToProduct = entity -> {
+    Function<ProductEntity, Product> fromEntityToModel = entity -> {
         final Product product = new Product();
         BeanUtils.copyProperties(entity, product);
         return product;
     };
 
-    Function<Product, ProductEntity> fromProductToProductEntity = product -> {
+    Function<Product, ProductEntity> fromModelToEntity = product -> {
         final ProductEntity entity = new ProductEntity();
         BeanUtils.copyProperties(product, entity);
         return entity;

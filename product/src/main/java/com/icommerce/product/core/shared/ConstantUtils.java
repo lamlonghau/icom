@@ -3,7 +3,6 @@ package com.icommerce.product.core.shared;
 public interface ConstantUtils {
 
     String API_VERSION_1 = "/v1";
-    String APPLICATION_NAME = "/icommerce";
     String RESOURCE_VERSION = "/version";
     String RESOURCE_PRODUCT = "/products";
     String SUCCESS = "Success";

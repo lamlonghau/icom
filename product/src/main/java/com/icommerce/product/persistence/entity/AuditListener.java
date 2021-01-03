@@ -1,6 +1,7 @@
 package com.icommerce.product.persistence.entity;
 
 
+import com.icommerce.product.core.shared.CommonUtils;
 import com.icommerce.product.core.shared.LocalProfile;
 
 import javax.persistence.PrePersist;
@@ -14,12 +15,12 @@ public class AuditListener<T extends BaseEntity> {
     public void prePersist(T entity) {
         entity.setCreatedOn(LocalDateTime.now());
         entity.setId(UUID.randomUUID().toString());
-        entity.setCreatedBy(LocalProfile.getUserId());
+        entity.setCreatedBy(CommonUtils.isNullOrEmpty(LocalProfile.getUserId()) ? "SYS" : LocalProfile.getUserId());
     }
 
     @PreUpdate
     public void preUpdate(T entity) {
         entity.setUpdatedOn(LocalDateTime.now());
-        entity.setUpdatedBy(LocalProfile.getUserId());
+        entity.setUpdatedBy(CommonUtils.isNullOrEmpty(LocalProfile.getUserId()) ? "SYS" : LocalProfile.getUserId());
     }
 }

@@ -22,6 +22,12 @@ public class BaseResponse<T> implements Serializable {
 		this.message = message;
 	}
 
+	public BaseResponse(String status, String code, T data) {
+		this.status = status;
+		this.code = code;
+		this.data = data;
+	}
+
 	public BaseResponse(String status, String code, String message, T data) {
 		this.status = status;
 		this.code = code;
