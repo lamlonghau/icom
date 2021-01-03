@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ShopcardApplication {
+public class ShopCardApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ShopcardApplication.class, args);
+		SpringApplication.run(ShopCardApplication.class, args);
 	}
 
 }
