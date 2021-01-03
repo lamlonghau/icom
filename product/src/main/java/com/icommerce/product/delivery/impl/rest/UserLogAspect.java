@@ -8,6 +8,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +21,10 @@ public class UserLogAspect {
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
+    @Value("${spring.rabbitmq.exchange}")
+    String topicExchangeName;
+    @Value("${spring.rabbitmq.routingKey}")
+    String routingKey;
 
     @Before("execution(* com.icommerce.product.delivery.impl.rest.ProductRest.find(..))")
     @Async(ConstantUtils.ASYNC_POOL)
@@ -28,7 +33,7 @@ public class UserLogAspect {
                 .map(Object::toString)
                 .collect(Collectors.joining(","));
         final UserLog userLog = new UserLog("SYS", UserAction.SEARCH, arguments);
-        rabbitTemplate.convertAndSend(userLog);
+        rabbitTemplate.convertAndSend(topicExchangeName, routingKey, userLog);
     }
 
     @Before("execution(* com.icommerce.product.delivery.impl.rest.ProductRest.findById(..))")
@@ -38,7 +43,7 @@ public class UserLogAspect {
                 .map(Object::toString)
                 .collect(Collectors.joining(","));
         final UserLog userLog = new UserLog("SYS", UserAction.SEARCH, arguments);
-        rabbitTemplate.convertAndSend(userLog);
+        rabbitTemplate.convertAndSend(topicExchangeName, routingKey, userLog);
     }
 
     @Before("execution(* com.icommerce.product.delivery.impl.rest.ProductRest.update(..))")
@@ -48,6 +53,6 @@ public class UserLogAspect {
                 .map(Object::toString)
                 .collect(Collectors.joining(","));
         final UserLog userLog = new UserLog("SYS", UserAction.SEARCH, arguments);
-        rabbitTemplate.convertAndSend(userLog);
+        rabbitTemplate.convertAndSend(topicExchangeName, routingKey, userLog);
     }
 }
