@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.icommerce</groupId>
-	<artifactId>productDto</artifactId>
+	<artifactId>product</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>productDto</name>
+	<name>product</name>
 	<description>Product Service</description>
 
 	<properties>
