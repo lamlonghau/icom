@@ -1,5 +1,8 @@
 package com.icommerce.product.core.userlog;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -7,6 +10,7 @@ public class UserLog {
 
     private String id;
     private String username;
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
     private LocalDateTime createdOn;
     private UserAction action;
     private String description;

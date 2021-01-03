@@ -1,9 +1,6 @@
 package com.icommerce.product.configuration;
 
-import org.springframework.amqp.core.Binding;
-import org.springframework.amqp.core.BindingBuilder;
-import org.springframework.amqp.core.Queue;
-import org.springframework.amqp.core.TopicExchange;
+import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
@@ -27,12 +24,12 @@ public class RabbitMQConfiguration {
     private String password;
 
     @Bean
-    public TopicExchange exchange() {
-        return new TopicExchange(topicExchangeName);
+    public DirectExchange exchange() {
+        return new DirectExchange(topicExchangeName);
     }
 
     @Bean
-    public Binding binding(Queue queue, TopicExchange exchange) {
+    public Binding binding(Queue queue, DirectExchange exchange) {
         return BindingBuilder.bind(queue).to(exchange).with(routingKey);
     }
 

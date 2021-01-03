@@ -1,5 +1,7 @@
 package com.icommerce.userlog.core.userlog;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.icommerce.userlog.core.shared.SelfValidating;
 
 import javax.validation.constraints.NotEmpty;
@@ -12,6 +14,7 @@ public class UserLog extends SelfValidating<UserLog> {
     private String id;
     @NotEmpty
     private String username;
+    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     @NotNull
     private LocalDateTime createdOn;
     @NotEmpty
