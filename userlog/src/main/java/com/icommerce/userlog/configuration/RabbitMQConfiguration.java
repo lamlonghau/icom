@@ -28,7 +28,7 @@ public class RabbitMQConfiguration {
 
     @Bean
     public MessageListenerContainer messageListenerContainer(ConnectionFactory connectionFactory ) {
-        SimpleMessageListenerContainer simpleMessageListenerContainer = new SimpleMessageListenerContainer();
+        final SimpleMessageListenerContainer simpleMessageListenerContainer = new SimpleMessageListenerContainer();
         simpleMessageListenerContainer.setConnectionFactory(connectionFactory);
         simpleMessageListenerContainer.setQueues(queue());
         simpleMessageListenerContainer.setMessageListener(new UserLogListener());

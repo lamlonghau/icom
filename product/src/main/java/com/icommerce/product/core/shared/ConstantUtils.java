@@ -12,4 +12,6 @@ public interface ConstantUtils {
     String BAD_REQUEST = "Bad Request";
     String RESOURCE_NOT_FOUND = "Resource not found";
     String ACCESS_DENIED = "Access denied";
+
+    String ASYNC_POOL = "defaultPool";
 }
