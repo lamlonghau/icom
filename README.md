@@ -85,13 +85,13 @@ And run command: mvn clean install && java -jar target/<service-name>-0.0.1-SNAP
 
 **Product service**
 
-- Find Products
+***Find Products***:
 curl --location --request GET 'http://localhost:9090/product-service/v1/products?search=name:*,colour:*&sort=price-&page=0&size=10'
 
-- Find Product by Id
+***Find Product by Id***:
 curl --location --request GET 'http://localhost:9090/product-service/v1/products/{product-id}'
 
-- Create Product
+***Create Product***:
 curl --location --request POST 'http://localhost:9090/product-service/v1/products' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -102,7 +102,7 @@ curl --location --request POST 'http://localhost:9090/product-service/v1/product
     "colour":"red"
 }'
 
-- Update Product
+***Update Product***:
 curl --location --request PUT 'http://localhost:9090/product-service/v1/products/{product-id}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -115,10 +115,10 @@ curl --location --request PUT 'http://localhost:9090/product-service/v1/products
 
 **Order service**
 
-- Get Order
+***Get Order***:
 curl --location --request GET 'http://localhost:9090/order-service/orders'
 
-- Create Order
+***Create Order***:
 curl --location --request POST 'http://localhost:9090/order-service/orders' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -145,7 +145,7 @@ curl --location --request POST 'http://localhost:9090/order-service/orders' \
 
 **Shopcard service**
 
-- Create Shopcard
+***Create Shopcard***:
 curl --location --request POST 'http://localhost:9090/shopcard-service/v1/shopcards' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -168,7 +168,7 @@ curl --location --request POST 'http://localhost:9090/shopcard-service/v1/shopca
     ]
 }'
 
-- Update Shopcard
+***Update Shopcard***:
 curl --location --request PUT 'http://localhost:9090/shopcard-service/v1/shopcards/{customer-id}' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -191,10 +191,10 @@ curl --location --request PUT 'http://localhost:9090/shopcard-service/v1/shopcar
     ]
 }'
 
-- Delete Shopcard
+***Delete Shopcard***:
 curl --location --request DELETE 'http://localhost:9090/shopcard-service/v1/shopcards/{customer-id}'
 
 **Userlog service**
 
-- Get Userlog
+***Get Userlog***:
 curl --location --request GET 'http://localhost:9090/userlog-service/user-logs'
