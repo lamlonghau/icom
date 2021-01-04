@@ -58,7 +58,7 @@ Clean architecture refers to organizing the project so that it's easy to underst
 - Install [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html).
 - Install [Docker for Desktop](https://www.docker.com/products/docker-desktop).
 - Install [Maven](https://maven.apache.org/download.cgi?Preferred=ftp://mirror.reverse.net/pub/apache/).
-- Clone source, go to folder ../icom and continue as below
+- Clone source, go to folder ../icom
 - Open terminal and run command: docker-compose up (ensure docker-compose.yml file in the same folder)
 - Configuration RabbitMQ
 - Go to: http://localhost:15672/ and login with account: rabbitmq/rabbitmq
