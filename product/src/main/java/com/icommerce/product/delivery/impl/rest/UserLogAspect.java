@@ -1,6 +1,7 @@
 package com.icommerce.product.delivery.impl.rest;
 
 import com.icommerce.product.core.shared.ConstantUtils;
+import com.icommerce.product.core.shared.LocalProfile;
 import com.icommerce.product.core.userlog.UserAction;
 import com.icommerce.product.core.userlog.UserLog;
 import org.aspectj.lang.JoinPoint;
@@ -32,7 +33,7 @@ public class UserLogAspect {
         final String arguments = Arrays.stream(joinPoint.getArgs())
                 .map(Object::toString)
                 .collect(Collectors.joining(","));
-        final UserLog userLog = new UserLog("SYS", UserAction.SEARCH, arguments);
+        final UserLog userLog = new UserLog(LocalProfile.getUserId(), UserAction.SEARCH, arguments);
         rabbitTemplate.convertAndSend(topicExchangeName, routingKey, userLog);
     }
 
@@ -42,7 +43,7 @@ public class UserLogAspect {
         final String arguments = Arrays.stream(joinPoint.getArgs())
                 .map(Object::toString)
                 .collect(Collectors.joining(","));
-        final UserLog userLog = new UserLog("SYS", UserAction.SEARCH, arguments);
+        final UserLog userLog = new UserLog(LocalProfile.getUserId(), UserAction.SEARCH, arguments);
         rabbitTemplate.convertAndSend(topicExchangeName, routingKey, userLog);
     }
 
@@ -52,7 +53,7 @@ public class UserLogAspect {
         final String arguments = Arrays.stream(joinPoint.getArgs())
                 .map(Object::toString)
                 .collect(Collectors.joining(","));
-        final UserLog userLog = new UserLog("SYS", UserAction.SEARCH, arguments);
+        final UserLog userLog = new UserLog(LocalProfile.getUserId(), UserAction.SEARCH, arguments);
         rabbitTemplate.convertAndSend(topicExchangeName, routingKey, userLog);
     }
 }

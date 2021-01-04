@@ -9,7 +9,8 @@ public class LocalProfile {
     }
 
     public static String getUserId() {
-        return user.get();
+        final String value = user.get();
+        return CommonUtils.isNullOrEmpty(value) ? "SYS" : value;
     }
 
     public static void clearUserId() {

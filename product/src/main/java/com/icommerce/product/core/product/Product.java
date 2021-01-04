@@ -69,4 +69,12 @@ public class Product extends SelfValidating<Product> {
     public void setColour(String colour) {
         this.colour = colour;
     }
+
+    @Override
+    public String toString() {
+        return new StringBuilder(id)
+                .append(title).append(description)
+                .append(brand).append(price).append(colour)
+                .toString();
+    }
 }
